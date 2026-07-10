@@ -7,11 +7,10 @@
   />
 
   <p>Veuillez sélectionner un menu :</p>
-  <p>{{listMenu[0].name }}</p>
-  <p>{{listMenu[1].name }}</p>
-  <p>{{listMenu[2].name }}</p>
-  <p>{{listMenu[3].name }}</p>
-  <p>{{listMenu[4].name }}</p>
+  
+  <p *ngFor="let m of listMenu">
+    {{ m.name }}
+  </p>
 
   <p *ngIf="menuSelected"> 
     Cher client vous avez selectionner le menu : {{ menuSelected.name }}
