@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { menuList} from './mock-menu-list';
 import { Menu } from './Menu';
-
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: 'app.component.html',
+  imports: [NgIf],
 })
 
 

@@ -2,14 +2,28 @@
 
  <input 
     #input
-    (keyup)="selectMenu(input.value)"
+    (keyup.enter)="selectMenu(input.value)"
     type="number" 
   />
- 
+
   <p>Veuillez sélectionner un menu :</p>
-  <p>{{ menuSelected?.name }}</p>
   <p>{{listMenu[0].name }}</p>
   <p>{{listMenu[1].name }}</p>
   <p>{{listMenu[2].name }}</p>
   <p>{{listMenu[3].name }}</p>
   <p>{{listMenu[4].name }}</p>
+
+  <p *ngIf="menuSelected"> 
+    Cher client vous avez selectionner le menu : {{ menuSelected.name }}
+  </p>
+
+  <p *ngIf="!menuSelected"> 
+    Cher client nous avons aucun menu disponible à l'index sélectionné. Veuillez réessayer.
+  </p>
+
+
+
+  
+
+  
+ 
