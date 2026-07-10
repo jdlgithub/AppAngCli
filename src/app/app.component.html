@@ -1,10 +1,14 @@
  <h1>Bienvenue sur le café virtuel du J </h1>
 
  <input 
- type="number" 
- (click)="selectMenu($event)"/>
-
+    #inputMenu
+    (keyup)="0"
+    type="text" 
+  />
+ 
   <p>Veuillez sélectionner un menu :</p>
+  <p>{{inputMenu.value }}</p>
+  
   <p>{{listMenu[0].name }}</p>
   <p>{{listMenu[1].name }}</p>
   <p>{{listMenu[2].name }}</p>
