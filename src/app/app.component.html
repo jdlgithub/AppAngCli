@@ -1,14 +1,13 @@
  <h1>Bienvenue sur le café virtuel du J </h1>
 
  <input 
-    #inputMenu
-    (keyup)="0"
-    type="text" 
+    #input
+    (keyup)="selectMenu(input.value)"
+    type="number" 
   />
  
   <p>Veuillez sélectionner un menu :</p>
-  <p>{{inputMenu.value }}</p>
-  
+  <p>{{ menuSelected?.name }}</p>
   <p>{{listMenu[0].name }}</p>
   <p>{{listMenu[1].name }}</p>
   <p>{{listMenu[2].name }}</p>

@@ -14,17 +14,26 @@ import { Menu } from './Menu';
 
 export class AppComponent implements OnInit {
   listMenu : Menu[] = [];
+  menuSelected: Menu | undefined;
 
   ngOnInit(): void {
     this.listMenu = menuList;
     console.table(this.listMenu);
   }
+  
+  selectMenu(menuId: string): void {
+    const index = +menuId;
+    this.menuSelected = this.listMenu[index];
+    
+    if (this.menuSelected) {
+       console.log('Vous avez selectionner le menu :', this.menuSelected.name); } 
+    else { 
+      console.log('Il n\' ya aucun menu à l\'index', index +'. Nous sommes desolé.'); }
 
-  selectMenu(event: MouseEvent): void {
-    const index = +(event.target as HTMLInputElement).value;
-    console.log(`Vous avez sélectionné le menu : ${this.listMenu[index].name}`);
+    }
+
   }
-}
+
 
 
 
