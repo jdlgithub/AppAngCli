@@ -1,24 +1,33 @@
- <h1>Bienvenue sur le café virtuel du J </h1>
+ <h1 class="center">Bienvenue sur le café virtuel du J </h1>
 
- <input 
-    #input
-    (keyup.enter)="selectMenu(input.value)"
-    type="number" 
-  />
+ <div class="container">
+  <div class="row">
+    <div *ngFor="let m of listMenu" class="col s12 m6 l4">
+      <div class="carte horizontal">
 
-  <p>Veuillez sélectionner un menu :</p>
-  
-  <p *ngFor="let m of listMenu">
-    {{ m.name }}
-  </p>
+        <div class="carte-image">
+          <img
+            [src]="'assets/images/' + m.name + '.jpg'"
+            [alt]="m.name">
+        </div>
 
-  <p *ngIf="menuSelected"> 
-    Cher client vous avez selectionner le menu : {{ menuSelected.name }}
-  </p>
+        <div class="carte-stacked">
+          <div class="carte-content">
+            <h5>{{ m.name }}</h5>
+            <p>{{ m.description }}</p>
+            <p><strong>Prix :</strong> {{ m.price }} €</p>
+          </div>
+        </div>
 
-  <p *ngIf="!menuSelected"> 
-    Cher client nous avons aucun menu disponible à l'index sélectionné. Veuillez réessayer.
-  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+
+
+ 
 
 
 
