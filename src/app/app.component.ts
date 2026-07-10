@@ -1,17 +1,30 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { OnInit } from '@angular/core';
+import { menuList} from './mock-menu-list';
+import { Menu } from './Menu';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  template: `
-    <h1>Welcome to {{title}}!</h1>
-
-    <router-outlet />
-  `,
-  styles: [],
+  templateUrl: 'app.component.html',
 })
-export class AppComponent {
-  title = 'frontInterfaceApplication';
+
+
+
+export class AppComponent implements OnInit {
+  listMenu : Menu[] = [];
+
+  ngOnInit(): void {
+    this.listMenu = menuList;
+    console.table(this.listMenu);
+  }
+
+  selectMenu(event: MouseEvent): void {
+    const index = +(event.target as HTMLInputElement).value;
+    console.log(`Vous avez sélectionné le menu : ${this.listMenu[index].name}`);
+  }
 }
+
+
+
